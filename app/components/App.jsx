@@ -25,9 +25,21 @@ export default class App extends Component {
 
     return (
       <div>
-        <button onClick={() => console.log('add note')}>+</button>
+        <button onClick={() => this.addNote()}>+</button>
         <Notes notes={notes}/>
       </div>
     );
+  }
+
+  addNote = () => {
+    console.log('add note');
+    const note = {
+      id: uuid.v4(),
+      task: 'New task'
+    };
+    this.setState({
+      ...this.state,
+      notes: [...this.state.notes, note]
+    });
   }
 }
