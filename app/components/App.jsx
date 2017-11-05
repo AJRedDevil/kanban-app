@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import uuid from 'uuid';
 import Notes from './Notes';
 
-const notes = [
-  {
-    id: uuid.v4(),
-    task: 'Learn React'
-  },
-  {
-    id: uuid.v4(),
-    task: 'Revise final report'
-  }
-];
+export default class App extends Component {
+  constructor(props) {
+    super(props);
 
-export default () => (
-  <div>
-    <button onClick={() => console.log('add note')}>+</button>
-    <Notes notes={notes}/>
-  </div>
-);
+    this.state = {
+      notes: [
+        {
+          id: uuid.v4(),
+          task: 'Learn React'
+        },
+        {
+          id: uuid.v4(),
+          task: 'Revise final report'
+        }
+      ]
+    };
+  }
+  render() {
+    const {notes} = this.state;
+
+    return (
+      <div>
+        <button onClick={() => console.log('add note')}>+</button>
+        <Notes notes={notes}/>
+      </div>
+    );
+  }
+}
