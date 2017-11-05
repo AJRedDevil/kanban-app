@@ -70,7 +70,7 @@ export default class App extends Component {
     });
   }
 
-  editNnote = (id, task) => {
+  editNote = (id, task) => {
     this.setState({
       ...this.state,
       notes: this.state.notes.map(note => {
